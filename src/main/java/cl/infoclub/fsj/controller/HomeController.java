@@ -19,7 +19,7 @@ public class HomeController {
 	@RequestMapping("/")
 	public String Main (Model modelo) {
 		String nombre = "src/main/resources/static/noticias.txt";
-		ArrayList<Noticia> listaNombres = new ArrayList<Noticia>();
+		ArrayList<Noticia> listaNoticias = new ArrayList<Noticia>();
 		
 		try {
 			FileReader fr = new FileReader(nombre);
@@ -39,7 +39,7 @@ public class HomeController {
 				logger.info("Noticia: "+nt.getNoticia());
 				logger.info("Imagen: "+nt.getImagen());
 				
-				listaNombres.add(nt);
+				listaNoticias.add(nt);
 				data = br.readLine();
 			}
 			
@@ -49,13 +49,44 @@ public class HomeController {
 			logger.error("Error leyendo el fichero"+nombre+" : "+e);
 		}
 		
-		for(int i=0; i<listaNombres.size();i++) {
-		modelo.addAttribute("noticia"+i+"_titulo",listaNombres.get(i).getTitulo());
-		modelo.addAttribute("noticia"+i+"_noticia",listaNombres.get(i).getNoticia());
-		modelo.addAttribute("noticia"+i+"_imagen",listaNombres.get(i).getImagen());
-		
+		for(int i=0; i<listaNoticias.size();i++) {
+			
+			
+			modelo.addAttribute("noticia"+i+"_titulo",separarLinea(listaNoticias.get(i).getTitulo(),4));
+			
+			modelo.addAttribute("noticia"+i+"_noticia",separarLinea(listaNoticias.get(i).getNoticia(),6));
+			
+			modelo.addAttribute("noticia"+i+"_imagen",listaNoticias.get(i).getImagen());
 		}
+		
+		modelo.addAttribute("max_noticias",listaNoticias.size());
+		
 		return "main";
+	}
+	
+	private String separarLinea(String sl, int cnt) {
+		String sl_mod=""; 
+		int countWords=0;
+		char currChar;
+		for(int h=0; h<sl.length();h++) {
+			currChar=sl.charAt(h);
+			if (currChar==' ') {
+				countWords++;
+				
+				if (countWords<cnt) {
+					sl_mod=sl_mod+sl.charAt(h);
+				}else {
+					//sl_mod=sl_mod+"       "; //System.lineSeparator();
+					sl_mod=sl_mod+System.lineSeparator();
+					countWords=0;
+				}
+			}else {
+				sl_mod=sl_mod+sl.charAt(h);
+			}
+		}
+		
+		return sl_mod;
+		
 	}
 	
 	

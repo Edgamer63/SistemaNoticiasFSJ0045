@@ -5,14 +5,65 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<meta http-equiv="X-UA-Compatible" content="ie=edge">
 		<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
-
+		<link rel="stylesheet" href="/css/main.css">
 		<title>Diario: El Hocicón</title>
 	</head>
 	<body>
-		<h1> Pagina de Productos</h1>
-		<p th:text="'Producto 1: '+${nombre1}+'!'"/>
-		<p th:text="'Producto 2: '+${nombre2}+'!'"/>
-		<p th:text="'Producto 3: '+${nombre3}+'!'"/>
+		<h1>Diario Pobre pero Honrado</h1>
 		
+		<div class="container">
+			<div class="row">
+		 		<div class="col-2">
+		    		<div class="card" style="width: 18rem;">
+						<img class="card-img-top" th:src="${noticia0_imagen}" alt="Imagen de la Noticia">
+				  		<div class="card-body">
+				    		<h2 class="card-title" th:text="${noticia0_titulo}"></h2>
+				    		<p class="card-text" th:text="${noticia0_noticia}"></p>
+				 		</div>
+					</div>
+		    	</div>
+		    	
+		    	<div class="col-2">
+		    		<div class="card" style="width: 18rem;">
+						<img class="card-img-top" th:src="${noticia1_imagen}" alt="Imagen de la Noticia">
+				  		<div class="card-body">
+				    		<h2 class="card-title" th:text="${noticia1_titulo}"></h2>
+				    		<p class="card-text" th:text="${noticia1_noticia}"></p>
+				 		</div>
+					</div>
+		    	</div>
+		    	
+		    	<div class="col-2">
+		    		<div class="card" style="width: 18rem;">
+						<img class="card-img-top" th:src="${noticia2_imagen}" alt="Imagen de la Noticia">
+				  		<div class="card-body">
+				    		<h2 class="card-title" th:text="${noticia2_titulo}"></h2>
+				    		<p class="card-text" th:text="${noticia2_noticia}"></p>
+				 		</div>
+					</div>
+		    	</div>
+		    	
+		    	<div class="col-2">
+		    		<div class="card" style="width: 18rem;">
+						<img class="card-img-top" th:src="${noticia3_imagen}" alt="Imagen de la Noticia">
+				  		<div class="card-body">
+				    		<h2 class="card-title" th:text="${noticia3_titulo}"></h2>
+				    		<p class="card-text" th:text="${noticia3_noticia}"></p>
+				 		</div>
+					</div>
+		    	</div>
+		    	
+		    	<div class="col-2">
+		    		<div class="card" style="width: 18rem;">
+						<img class="card-img-top" th:src="${noticia4_imagen}" alt="Imagen de la Noticia">
+				  		<div class="card-body">
+				    		<h2 class="card-title" th:text="${noticia4_titulo}"></h2>
+				    		<p class="card-text" th:text="${noticia4_noticia}"></p>
+				 		</div>
+					</div>
+		    	</div>
+		  	</div>
+		</div>
+
 	</body>
 </html>
