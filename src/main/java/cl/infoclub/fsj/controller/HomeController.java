@@ -54,7 +54,7 @@ public class HomeController {
 			
 			modelo.addAttribute("noticia"+i+"_titulo",separarLinea(listaNoticias.get(i).getTitulo(),4));
 			
-			modelo.addAttribute("noticia"+i+"_noticia",separarLinea(listaNoticias.get(i).getNoticia(),6));
+			modelo.addAttribute("noticia"+i+"_noticia",separarLinea(listaNoticias.get(i).getNoticia(),5));
 			
 			modelo.addAttribute("noticia"+i+"_imagen",listaNoticias.get(i).getImagen());
 		}
@@ -76,7 +76,6 @@ public class HomeController {
 				if (countWords<cnt) {
 					sl_mod=sl_mod+sl.charAt(h);
 				}else {
-					//sl_mod=sl_mod+"       "; //System.lineSeparator();
 					sl_mod=sl_mod+System.lineSeparator();
 					countWords=0;
 				}
